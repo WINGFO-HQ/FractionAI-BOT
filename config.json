@@ -1,0 +1,6 @@
+{
+  "fee": 0.01,
+  "antiCaptchaKey": "your_anti_captcha_key",
+  "retryDelay": 10000,
+  "maxRetries": 3
+}
