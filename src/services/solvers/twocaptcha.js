@@ -25,6 +25,7 @@ class TwoCaptchaSolver {
         numeric: 4,
         min_len: 5,
         max_len: 5,
+        case: true,
       });
 
       if (!result || !result.data) {
@@ -33,8 +34,10 @@ class TwoCaptchaSolver {
 
       this.lastCaptchaId = result.id;
 
-      Tools.log(`2Captcha solved captcha: ${result.data}`);
-      return result.data;
+      const upperCaseResult = result.data.toUpperCase();
+
+      Tools.log(`2Captcha solved captcha: ${upperCaseResult}`);
+      return upperCaseResult;
     } catch (error) {
       Tools.log(`2Captcha solving error: ${error.message}`);
       throw error;

@@ -3,7 +3,7 @@ import Network from "./network.js";
 import Tools from "../utils/tools.js";
 import Client from "../services/client.js";
 import Display from "../utils/display.js";
-import Solver from "../services/solver.js";
+import Solver from "../services/solvers/index.js";
 import fs from "fs/promises";
 
 const loadConfig = async () => {
@@ -29,7 +29,7 @@ class WalletManager extends Client {
 
   async initialize() {
     this.config = await loadConfig();
-    this.solver = new Solver(this.config.antiCaptchaKey);
+    this.solver = new Solver(this.config);
   }
 
   async connect() {

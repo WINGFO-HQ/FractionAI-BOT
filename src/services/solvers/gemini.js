@@ -20,7 +20,7 @@ class GeminiSolver {
       Tools.log("Solving captcha with Gemini...");
 
       const prompt =
-        "Please identify and provide only the text/numbers shown in this captcha image. Format the answer as plain text without any additional explanation or punctuation.";
+        "Please identify and provide only the text/numbers shown in this captcha image. Format the answer as plain text without any additional explanation or punctuation. Provide the result in ALL UPPERCASE LETTERS.";
 
       const image = {
         inlineData: {
@@ -31,7 +31,7 @@ class GeminiSolver {
 
       const result = await this.model.generateContent([prompt, image]);
       const captchaText = result.response.text().trim();
-      const cleanedCaptchaText = captchaText.replace(/\s/g, "");
+      const cleanedCaptchaText = captchaText.replace(/\s/g, "").toUpperCase();
 
       Tools.log(`Gemini solved captcha: ${cleanedCaptchaText}`);
       return cleanedCaptchaText;

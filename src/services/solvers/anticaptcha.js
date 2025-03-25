@@ -12,6 +12,7 @@ class AntiCaptchaSolver {
     }
     ac.setAPIKey(apiKey);
     ac.setSoftId(0);
+    ac.shutUp();
     Tools.log("AntiCaptcha initialized successfully");
   }
 
